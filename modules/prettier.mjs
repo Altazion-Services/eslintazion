@@ -1,3 +1,4 @@
+/** @type {Record<string, boolean | string | number>} */
 export default {
     arrowParens: 'avoid',
     bracketSpacing: true,

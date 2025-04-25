@@ -15,25 +15,46 @@
 
 ## Installation
 
-#### Install lintazion
+#### Install lintazion and dependencies
 ```
-npm i -D github:Altazion-Services/eslintazion
-```
-#### Install peer dependencies
-```
-npm i -D eslint prettier typescript-eslint @eslint/js eslint-plugin-import eslint-config-prettier
+npm i -D github:Altazion-Services/eslintazion eslint typescript-eslint @eslint/js @nuxt/eslint-config prettier
 ```
 
-## Usage
+## Usage (Nuxt 3)
 #### Eslint
 Create a `eslint.config.mjs`, import the rules file and append the rule object to your configuration:
 ```js
-import rules from 'lintazion/eslint.rules.mjs';
+import { createConfigForNuxt } from '@nuxt/eslint-config';
+import { jsRules, tsRules, importRules, vueRules } from 'lintazion/modules/eslint.mjs';
+import js from '@eslint/js';
+import ts from 'typescript-eslint';
+import importsPlugin from 'eslint-plugin-import';
+
+export default createConfigForNuxt([
+    js.configs.recommended,
+    ...ts.configs.recommended,
+    {
+        files: ['./**/*.ts', './**/*.tsx', './**/*.js', './**/*.jsx', './**/*.vue'],
+        plugins: {
+            import: importsPlugin,
+        },
+        rules: importRules,
+    },
+])
+    .override('nuxt/rules', {
+        rules: jsRules,
+    })
+    .override('nuxt/vue/rules', {
+        rules: vueRules,
+    })
+    .override('nuxt/typescript/rules', {
+        rules: tsRules,
+    });
 ```
 
 #### Prettier
 Create a `prettier.config.mjs` file in the root of your project and add the following code:
 ```js
-import prettierConfig from 'lintazion/prettier.rules.mjs';
+import prettierConfig from 'lintazion/modules/prettier.rules.mjs';
 export default prettierConfig;
 ```

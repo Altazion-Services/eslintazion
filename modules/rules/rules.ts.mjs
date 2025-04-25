@@ -1,14 +1,5 @@
-export default {
-    'no-nested-ternary': 'error',
-    'no-undef': 'off',
-    'no-case-declarations': 'off',
-    'import/no-duplicates': [
-        'error',
-        {
-            'prefer-inline': true,
-        },
-    ],
-    'import/no-mutable-exports': 'error',
+/** @type {Record<string, any>} */
+export const tsRules = {
     '@typescript-eslint/prefer-for-of': 'warn',
     '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
     '@typescript-eslint/no-empty-function': ['warn', { allow: [] }],
@@ -21,5 +12,4 @@ export default {
     '@typescript-eslint/no-namespace': 'off',
     '@typescript-eslint/no-empty-interface': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
-    'vue/no-v-html': 'off',
 };
