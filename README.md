@@ -17,7 +17,7 @@
 
 #### Install lintazion and dependencies
 ```
-npm i -D github:Altazion-Services/eslintazion eslint typescript-eslint @eslint/js @nuxt/eslint-config prettier
+npm -D i github:Altazion-Services/eslintazion eslint typescript-eslint eslint-plugin-import @eslint/js @nuxt/eslint-config prettier
 ```
 
 ## Usage (Nuxt 3)
