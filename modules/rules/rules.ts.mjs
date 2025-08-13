@@ -5,6 +5,7 @@ export const tsRules = {
     '@typescript-eslint/no-empty-function': ['warn', { allow: [] }],
     '@typescript-eslint/consistent-type-definitions': 'warn',
     '@typescript-eslint/consistent-type-imports': 'warn',
+    '@typescript-eslint/no-dynamic-delete': 'off',
     '@typescript-eslint/no-extraneous-class': 'off',
     '@typescript-eslint/no-empty-object-type': 'off',
     '@typescript-eslint/no-inferrable-types': 'off',
